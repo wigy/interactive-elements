@@ -1,4 +1,3 @@
 # Interactive Elements
 
-Elements for ISP and RISP
-
+Common elements for ISP and RISP
