@@ -37,7 +37,7 @@ export interface OnClickTrigger {
  * @property values A set of values to edit associated with the rendering process.
  * @property setup Global configuration for the rendering system.
  */
-export type RenderingProps<SetupType = Setup, ElementType = Element> = {
+export type RenderingProps<SetupType = Setup, ElementType = InteractiveElement> = {
   element: ElementType,
   values: TriggerValues,
   setup: SetupType
@@ -90,14 +90,14 @@ export interface FailedActionResult {
 /**
  * A function processing an action.
  */
-export interface ActionHandler<SetupType = Setup, ElementType = Element, ActionType = Action> {
+export interface ActionHandler<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> {
   (action: ActionType, props: RenderingProps<SetupType, ElementType>): ActionResult
 }
 
 /**
  * The handler function is a function converting the trigger data to the action result.
  */
-export interface TriggerHandler<SetupType = Setup, ElementType = Element, TriggerType = Trigger> {
+export interface TriggerHandler<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger> {
   (trigger: TriggerType, props: RenderingProps<SetupType, ElementType>): ActionResult
 }
 
@@ -121,7 +121,7 @@ export type TriggerName = string
 /**
  * Generic interface for all elements that can define action handlers.
  */
-export interface ActiveElement<SetupType = Setup, ElementType = Element, TriggerType = Trigger, ActionType = Action> {
+export interface ActiveElement<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> {
   readonly type: string
   triggerHandler?: TriggerHandler<SetupType, ElementType, TriggerType>
   actions: Actions<ActionType>
@@ -183,7 +183,7 @@ export function isButtonElement(object: unknown): object is ButtonElement {
 /**
  * An elment that contains other elements.
  */
-export interface ContainerElement<ElementType = Element> {
+export interface ContainerElement<ElementType = InteractiveElement> {
   elements: ElementType[]
 }
 
@@ -194,7 +194,7 @@ export function isContainerElement(object: unknown): object is ContainerElement 
 /**
  * A simple element container rendering each contained element one by one in DIV.
  */
-export interface FlatElement<ElementType = Element> extends ContainerElement<ElementType> {
+export interface FlatElement<ElementType = InteractiveElement> extends ContainerElement<ElementType> {
   readonly type: string
 }
 
@@ -209,4 +209,4 @@ export interface ViewElement<DataType> {
   data: DataType
 }
 
-export type Element = BooleanElement | TextElement | ButtonElement | FlatElement
+export type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement
