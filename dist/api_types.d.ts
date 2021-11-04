@@ -11,7 +11,7 @@ export declare type GetApiResponse = {
     complete: boolean;
     successful?: boolean;
     currentStep?: number;
-    maxSteps?: number;
+    steps?: number;
     status: ProcessStatus;
     error?: string;
     created: Date;
