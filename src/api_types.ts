@@ -38,3 +38,18 @@ export type GetOneProcessResponse = {
   error?: string
   created: Date
 }
+
+/**
+ * Response for single process step fetch.
+ */
+ export type GetOneStepResponse = {
+  id: ID
+  processId: ID
+  number: number
+  started: Date
+  finished: Date
+  handler: string
+  directions: null | Record<string, unknown>
+  action: null | Record<string, unknown>
+  state: Record<string, unknown>
+}

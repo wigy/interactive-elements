@@ -1,7 +1,7 @@
 /**
  * Configuration data for a process.
  */
-export declare type ProcessConfig = Record<string, any>;
+export declare type ProcessConfig = Record<string, unknown>;
 /**
  * The name of the process.
  */
