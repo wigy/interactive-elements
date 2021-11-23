@@ -16,7 +16,6 @@ export type GetAllProcessesApiResponse = {
   complete: boolean
   successful: boolean
   currentStep: number
-  steps: number
   status: ProcessStatus
   error?: string
   created: Date
@@ -33,7 +32,13 @@ export type GetOneProcessResponse = {
   complete: boolean
   successful: boolean
   currentStep: number
-  steps: number
+  steps: {
+    id: ID
+    action: Record<string, unknown>
+    number: number
+    started: Date
+    finished: Date
+  }[]
   status: ProcessStatus
   error?: string
   created: Date
