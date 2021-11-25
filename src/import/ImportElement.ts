@@ -1,6 +1,6 @@
+import { InteractiveElement } from '../elements'
+
 /**
- * This class is not actually in use.
+ * Element which is used to define UI for processes that need more information.
  */
-export interface ImportElement {
-  name: 'demo'
-}
+export type ImportElement = InteractiveElement
