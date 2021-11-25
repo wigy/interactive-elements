@@ -172,7 +172,7 @@ export function isTextElement(object: unknown): object is TextElement {
  * An element activating an action when clicked.
  */
 export interface ButtonElement extends ActiveElement {
-  readonly type: 'string'
+  readonly type: string
   label: string
 }
 

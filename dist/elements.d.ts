@@ -141,7 +141,7 @@ export declare function isTextElement(object: unknown): object is TextElement;
  * An element activating an action when clicked.
  */
 export interface ButtonElement extends ActiveElement {
-    readonly type: 'string';
+    readonly type: string;
     label: string;
 }
 export declare function isButtonElement(object: unknown): object is ButtonElement;
