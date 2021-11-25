@@ -1,6 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = void 0;
+exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
+// eslint-disable-next-line
+function isPatchAction(obj) {
+    return typeof obj === 'object' && 'url' in obj && obj.type === 'patch';
+}
+exports.isPatchAction = isPatchAction;
+// eslint-disable-next-line
+function isPostAction(obj) {
+    return typeof obj === 'object' && 'url' in obj && obj.type === 'post';
+}
+exports.isPostAction = isPostAction;
 function isActiveElement(object) {
     return typeof object === "object" && object !== null && !!object['actions'];
 }

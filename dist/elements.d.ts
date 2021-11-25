@@ -5,6 +5,7 @@
  */
 export interface Setup {
     baseUrl?: string;
+    token?: string;
 }
 /**
  * A trigger is a data packet initiated by some activity in the application.
@@ -51,9 +52,25 @@ export interface DebugAction {
     readonly type: 'debug';
 }
 /**
+ * Payload of the `patch` action.
+ */
+export interface PatchAction {
+    readonly type: 'patch';
+    url: string;
+}
+export declare function isPatchAction(obj: any): obj is PatchAction;
+/**
+ * Payload of `post` action.
+ */
+export interface PostAction {
+    readonly type: 'post';
+    url: string;
+}
+export declare function isPostAction(obj: any): obj is PostAction;
+/**
  * Payload for the action execution.
  */
-export declare type Action = DebugAction;
+export declare type Action = DebugAction | PatchAction | PostAction;
 /**
  * An action definition collection.
  */

@@ -1,3 +1,3 @@
 # Interactive Elements
 
-Common elements for ISP and RISP
+Common definitions for ISP and RISP libs.

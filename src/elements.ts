@@ -1,3 +1,4 @@
+// TODO: Split to setup, trigger, action and element files.
 /**
  * Default version of the configuration for the RISP setup.
  *
@@ -5,6 +6,7 @@
  */
  export interface Setup {
   baseUrl?: string
+  token?: string
 }
 
 /**
@@ -56,9 +58,33 @@ export interface DebugAction {
 }
 
 /**
+ * Payload of the `patch` action.
+ */
+ export interface PatchAction {
+  readonly type: 'patch'
+  url: string
+}
+// eslint-disable-next-line
+export function isPatchAction(obj: any): obj is PatchAction {
+return typeof obj === 'object' && 'url' in obj && obj.type === 'patch'
+}
+
+/**
+ * Payload of `post` action.
+ */
+ export interface PostAction {
+  readonly type: 'post'
+  url: string
+}
+// eslint-disable-next-line
+export function isPostAction(obj: any): obj is PostAction {
+  return typeof obj === 'object' && 'url' in obj && obj.type === 'post'
+}
+
+/**
  * Payload for the action execution.
  */
-export type Action = DebugAction
+export type Action = DebugAction | PatchAction | PostAction
 
 /**
  * An action definition collection.
