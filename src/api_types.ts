@@ -35,6 +35,7 @@ export type GetOneProcessResponse = {
   steps: {
     id: ID
     action: Record<string, unknown>
+    directions: Record<string, unknown>
     number: number
     started: Date
     finished: Date
