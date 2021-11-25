@@ -7,6 +7,8 @@
  export interface Setup {
   baseUrl?: string
   token?: string
+  errorMessage?: (message: string) => void
+  successMessage?: (message: string) => void
 }
 
 /**
@@ -63,6 +65,8 @@ export interface DebugAction {
  export interface PatchAction {
   readonly type: 'patch'
   url: string
+  errorMessage?: string
+  successMessage?: string
 }
 // eslint-disable-next-line
 export function isPatchAction(obj: any): obj is PatchAction {
@@ -75,6 +79,8 @@ return typeof obj === 'object' && 'url' in obj && obj.type === 'patch'
  export interface PostAction {
   readonly type: 'post'
   url: string
+  errorMessage?: string
+  successMessage?: string
 }
 // eslint-disable-next-line
 export function isPostAction(obj: any): obj is PostAction {

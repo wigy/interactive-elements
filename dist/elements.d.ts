@@ -6,6 +6,8 @@
 export interface Setup {
     baseUrl?: string;
     token?: string;
+    errorMessage?: (message: string) => void;
+    successMessage?: (message: string) => void;
 }
 /**
  * A trigger is a data packet initiated by some activity in the application.
@@ -57,6 +59,8 @@ export interface DebugAction {
 export interface PatchAction {
     readonly type: 'patch';
     url: string;
+    errorMessage?: string;
+    successMessage?: string;
 }
 export declare function isPatchAction(obj: any): obj is PatchAction;
 /**
@@ -65,6 +69,8 @@ export declare function isPatchAction(obj: any): obj is PatchAction;
 export interface PostAction {
     readonly type: 'post';
     url: string;
+    errorMessage?: string;
+    successMessage?: string;
 }
 export declare function isPostAction(obj: any): obj is PostAction;
 /**
