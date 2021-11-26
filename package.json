@@ -7,7 +7,7 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "dev": "tsc -w",
-    "build": "rm -rf dist/* && tsc && yarn run doc",
+    "build": "rm -rf dist/* && tsc",
     "doc": "rm -fr doc/* && typedoc --out doc src/index.ts",
     "doc:watch": "typedoc --watch --out doc src/index.ts",
     "test": "echo No tests yet. Just definitions.",
