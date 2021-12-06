@@ -11,7 +11,7 @@ export type ImportStateText<StageType> = {
     }
   }
   segments?: Record<SegmentId, ImportSegment>
-  results?: Record<SegmentId, unknown>
+  result?: Record<SegmentId, unknown>
 }
 
 /**
