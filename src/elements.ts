@@ -202,8 +202,9 @@ export function isTextElement(object: unknown): object is TextElement {
 
 /**
  * An element activating an action when clicked.
+ * TODO: Other active elements should have the similar structure. Update also where used in further definition.
  */
-export interface ButtonElement extends ActiveElement {
+export interface ButtonElement<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> extends ActiveElement<SetupType, ElementType, TriggerType, ActionType> {
   readonly type: string
   label: string
 }
