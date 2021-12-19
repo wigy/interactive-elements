@@ -26,7 +26,7 @@ export interface OnChangeTrigger {
     value: TriggerValue;
 }
 /**
- * This trigger is acticated by clicking on some target.
+ * This trigger is activated by clicking on some target.
  */
 export interface OnClickTrigger {
     readonly type: 'onClick';
@@ -109,8 +109,8 @@ export interface ActionHandler<SetupType = Setup, ElementType = InteractiveEleme
 /**
  * The handler function is a function converting the trigger data to the action result.
  */
-export interface TriggerHandler<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger> {
-    (trigger: TriggerType, props: RenderingProps<SetupType, ElementType>): ActionResult;
+export interface TriggerHandler<SetupType = Setup, ElementType = InteractiveElement> {
+    (trigger: Trigger, props: RenderingProps<SetupType, ElementType>): ActionResult;
 }
 /**
  * A single payload that the trigger can have, i.e. tigger data.
@@ -129,9 +129,9 @@ export declare type TriggerName = string;
 /**
  * Generic interface for all elements that can define action handlers.
  */
-export interface ActiveElement<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> {
+export interface ActiveElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> {
     readonly type: string;
-    triggerHandler?: TriggerHandler<SetupType, ElementType, TriggerType>;
+    triggerHandler?: TriggerHandler<SetupType, ElementType>;
     actions: Actions<ActionType>;
     label?: string;
 }
@@ -149,21 +149,21 @@ export declare function isNamedElement(object: unknown): object is NamedElement;
 /**
  * A boolean toggle element.
  */
-export interface BooleanElement<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> extends ActiveElement<SetupType, ElementType, TriggerType, ActionType>, NamedElement {
+export interface BooleanElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
     readonly type: string;
 }
 export declare function isBooleanElement(object: unknown): object is BooleanElement;
 /**
  * A text editing element.
  */
-export interface TextElement<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> extends ActiveElement<SetupType, ElementType, TriggerType, ActionType>, NamedElement {
+export interface TextElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
     readonly type: string;
 }
 export declare function isTextElement(object: unknown): object is TextElement;
 /**
  * An element activating an action when clicked.
  */
-export interface ButtonElement<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> extends ActiveElement<SetupType, ElementType, TriggerType, ActionType> {
+export interface ButtonElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType> {
     readonly type: string;
     label: string;
 }
