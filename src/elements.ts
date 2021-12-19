@@ -181,7 +181,7 @@ export function isNamedElement(object: unknown): object is NamedElement {
 /**
  * A boolean toggle element.
  */
-export interface BooleanElement extends ActiveElement, NamedElement {
+export interface BooleanElement <SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> extends ActiveElement<SetupType, ElementType, TriggerType, ActionType>, NamedElement {
   readonly type: string
 }
 
@@ -192,7 +192,7 @@ export function isBooleanElement(object: unknown): object is BooleanElement {
 /**
  * A text editing element.
  */
-export interface TextElement extends ActiveElement, NamedElement {
+export interface TextElement <SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> extends ActiveElement<SetupType, ElementType, TriggerType, ActionType>, NamedElement {
   readonly type: string
 }
 
@@ -202,7 +202,6 @@ export function isTextElement(object: unknown): object is TextElement {
 
 /**
  * An element activating an action when clicked.
- * TODO: Other active elements should have the similar structure. Update also where used in further definition.
  */
 export interface ButtonElement<SetupType = Setup, ElementType = InteractiveElement, TriggerType = Trigger, ActionType = Action> extends ActiveElement<SetupType, ElementType, TriggerType, ActionType> {
   readonly type: string
