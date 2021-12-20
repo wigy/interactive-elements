@@ -86,12 +86,13 @@ export interface Actions<ActionType = Action> {
 /**
  * A result retuned by the action handler.
  */
-export declare type ActionResult = Promise<SuccessgulActionResult | FailedActionResult>;
+export declare type ActionResult = SuccessfulActionResult | FailedActionResult;
 /**
  * A successful result retuned by the action handler.
  */
-export interface SuccessgulActionResult {
+export interface SuccessfulActionResult {
     success: true;
+    result: unknown;
 }
 /**
  * A failure result retuned by the action handler.
@@ -104,13 +105,13 @@ export interface FailedActionResult {
  * A function processing an action.
  */
 export interface ActionHandler<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> {
-    (action: ActionType, props: RenderingProps<SetupType, ElementType>): ActionResult;
+    (action: ActionType, props: RenderingProps<SetupType, ElementType>): Promise<ActionResult>;
 }
 /**
  * The handler function is a function converting the trigger data to the action result.
  */
 export interface TriggerHandler<SetupType = Setup, ElementType = InteractiveElement> {
-    (trigger: Trigger, props: RenderingProps<SetupType, ElementType>): ActionResult;
+    (trigger: Trigger, props: RenderingProps<SetupType, ElementType>): Promise<ActionResult>;
 }
 /**
  * A single payload that the trigger can have, i.e. tigger data.
