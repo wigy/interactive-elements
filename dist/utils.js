@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.elementNames = void 0;
 const elements_1 = require("./elements");
 /**
  * Collect all names defined in the element structure.
@@ -20,6 +21,4 @@ function elementNames(element) {
     }
     return new Set();
 }
-exports.default = {
-    elementNames
-};
+exports.elementNames = elementNames;

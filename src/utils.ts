@@ -4,7 +4,7 @@ import { InteractiveElement, isContainerElement, isNamedElement } from './elemen
  * Collect all names defined in the element structure.
  * @param element
  */
-function elementNames(element: InteractiveElement) {
+export function elementNames(element: InteractiveElement) {
   if (isContainerElement(element)) {
     const vars = new Set()
     for (const sub of element.elements) {
@@ -17,8 +17,4 @@ function elementNames(element: InteractiveElement) {
     return new Set([element.name])
   }
   return new Set()
-}
-
-export default {
-  elementNames
 }
