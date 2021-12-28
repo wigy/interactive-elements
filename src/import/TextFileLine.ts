@@ -8,6 +8,11 @@ export type LineNumber = number
   */
 export type SegmentId = string
 
+/**
+ * A constant denoting that something does not have segment ID.
+ */
+export const NO_SEGMENT = Symbol('NO_SEGMENT')
+
  /**
   * One line in a text file data on the import process.
   *

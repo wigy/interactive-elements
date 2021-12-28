@@ -5,4 +5,5 @@
  */
 export declare type ImportCSVOptions = {
     useFirstLineHeadings?: boolean;
+    columnSeparator?: string;
 };
