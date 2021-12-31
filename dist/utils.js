@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.elementNames = void 0;
+exports.num = exports.elementNames = void 0;
 const elements_1 = require("./elements");
 /**
  * Collect all names defined in the element structure.
@@ -22,3 +22,27 @@ function elementNames(element) {
     return new Set();
 }
 exports.elementNames = elementNames;
+/**
+ * Utility to heuristically convert nessy string to number.
+ * @param str
+ * @returns
+ */
+function num(str) {
+    str = str.replace(/\s/g, '');
+    try {
+        if (/,\d+\./.test(str)) {
+            str = str.replace(/,/g, '');
+        }
+        else if (/\.\d+,/.test(str)) {
+            str = str.replace(/\./g, '').replace(/,/, '.');
+        }
+        else {
+            str = str.replace(',', '.');
+        }
+        return parseFloat(str);
+    }
+    catch (err) {
+        return NaN;
+    }
+}
+exports.num = num;

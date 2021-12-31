@@ -18,3 +18,24 @@ export function elementNames(element: InteractiveElement) {
   }
   return new Set()
 }
+
+/**
+ * Utility to heuristically convert nessy string to number.
+ * @param str
+ * @returns
+ */
+ export function num(str: string): number | typeof NaN {
+  str = str.replace(/\s/g, '')
+  try {
+    if (/,\d+\./.test(str)) {
+      str = str.replace(/,/g, '')
+    } else if (/\.\d+,/.test(str)) {
+      str = str.replace(/\./g, '').replace(/,/, '.')
+    } else {
+      str = str.replace(',', '.')
+    }
+    return parseFloat(str)
+  } catch(err) {
+    return NaN
+  }
+}
