@@ -189,4 +189,13 @@ export declare function isFlatElement(object: unknown): object is FlatElement;
 export interface ViewElement<DataType> {
     data: DataType;
 }
-export declare type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement;
+/**
+ * A text message displayed as is.
+ */
+export interface MessageElement {
+    readonly type: string;
+    severity: 'info' | 'warning' | 'error' | 'success';
+    text: string;
+}
+export declare function isMessageElement(object: unknown): object is MessageElement;
+export declare type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | MessageElement;

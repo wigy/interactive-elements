@@ -242,4 +242,20 @@ export interface ViewElement<DataType> {
   data: DataType
 }
 
-export type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement
+/**
+ * A text message displayed as is.
+ */
+export interface MessageElement {
+  readonly type: string
+  severity: 'info' | 'warning' | 'error' | 'success'
+  text: string
+}
+
+export function isMessageElement(object: unknown): object is MessageElement {
+  return (typeof object === "object" && object !== null && object['type'] === 'message'
+    && 'severity' in object && ['info', 'warning', 'error', 'success'].includes(object['severity'])
+    && 'text' in object && typeof object['text'] === 'string'
+  )
+}
+
+export type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | MessageElement

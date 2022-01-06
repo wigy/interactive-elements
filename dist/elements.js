@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
+exports.isMessageElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
 // eslint-disable-next-line
 function isPatchAction(obj) {
     return typeof obj === 'object' && 'url' in obj && obj.type === 'patch';
@@ -39,3 +39,9 @@ function isFlatElement(object) {
     return typeof object === "object" && object !== null && object['type'] === 'flat';
 }
 exports.isFlatElement = isFlatElement;
+function isMessageElement(object) {
+    return (typeof object === "object" && object !== null && object['type'] === 'message'
+        && 'severity' in object && ['info', 'warning', 'error', 'success'].includes(object['severity'])
+        && 'text' in object && typeof object['text'] === 'string');
+}
+exports.isMessageElement = isMessageElement;
