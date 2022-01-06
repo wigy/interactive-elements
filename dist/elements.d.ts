@@ -134,7 +134,6 @@ export interface ActiveElement<SetupType = Setup, ElementType = InteractiveEleme
     readonly type: string;
     triggerHandler?: TriggerHandler<SetupType, ElementType>;
     actions: Actions<ActionType>;
-    label?: string;
 }
 export declare function isActiveElement(object: unknown): object is ActiveElement;
 /**
@@ -151,21 +150,21 @@ export declare function isNamedElement(object: unknown): object is NamedElement;
  * A boolean toggle element.
  */
 export interface BooleanElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
-    readonly type: string;
+    readonly type: 'boolean';
 }
 export declare function isBooleanElement(object: unknown): object is BooleanElement;
 /**
  * A text editing element.
  */
 export interface TextElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
-    readonly type: string;
+    readonly type: 'text';
 }
 export declare function isTextElement(object: unknown): object is TextElement;
 /**
  * An element activating an action when clicked.
  */
 export interface ButtonElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType> {
-    readonly type: string;
+    readonly type: 'button';
     label: string;
 }
 export declare function isButtonElement(object: unknown): object is ButtonElement;
@@ -180,7 +179,7 @@ export declare function isContainerElement(object: unknown): object is Container
  * A simple element container rendering each contained element one by one in DIV.
  */
 export interface FlatElement<ElementType = InteractiveElement> extends ContainerElement<ElementType> {
-    readonly type: string;
+    readonly type: 'flat';
 }
 export declare function isFlatElement(object: unknown): object is FlatElement;
 /**
@@ -193,9 +192,17 @@ export interface ViewElement<DataType> {
  * A text message displayed as is.
  */
 export interface MessageElement {
-    readonly type: string;
+    readonly type: 'message';
     severity: 'info' | 'warning' | 'error' | 'success';
     text: string;
 }
 export declare function isMessageElement(object: unknown): object is MessageElement;
-export declare type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | MessageElement;
+/**
+ * A collection of radio buttons.
+ */
+export interface RadioElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+    readonly type: 'radio';
+    options: Record<string, string>;
+}
+export declare function isRadioElement(object: unknown): object is RadioElement;
+export declare type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | MessageElement | RadioElement;

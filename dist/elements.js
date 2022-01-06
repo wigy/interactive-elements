@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isMessageElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
+exports.isRadioElement = exports.isMessageElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
 // eslint-disable-next-line
 function isPatchAction(obj) {
     return typeof obj === 'object' && 'url' in obj && obj.type === 'patch';
@@ -45,3 +45,8 @@ function isMessageElement(object) {
         && 'text' in object && typeof object['text'] === 'string');
 }
 exports.isMessageElement = isMessageElement;
+function isRadioElement(object) {
+    return (typeof object === "object" && object !== null && object['type'] === 'radio'
+        && 'options' in object && typeof object['options'] === 'object');
+}
+exports.isRadioElement = isRadioElement;
