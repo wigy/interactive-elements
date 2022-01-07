@@ -1,3 +1,4 @@
+import { SegmentId } from ".";
 /**
  * Action for updating process configuration.
  */
@@ -16,7 +17,7 @@ export declare function isImportConfigureAction(obj: unknown): obj is ImportConf
  * Actions for responding to questions.
  */
 export interface ImportAnswerAction {
-    answer: Record<string, unknown>;
+    answer: Record<SegmentId, Record<string, unknown>>;
 }
 export declare function isImportAnswerAction(obj: unknown): obj is ImportAnswerAction;
 /**
