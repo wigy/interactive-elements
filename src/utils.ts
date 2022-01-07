@@ -4,9 +4,9 @@ import { InteractiveElement, isContainerElement, isNamedElement } from './elemen
  * Collect all names defined in the element structure.
  * @param element
  */
-export function elementNames(element: InteractiveElement) {
+export function elementNames<ElementType=InteractiveElement>(element: ElementType): Set<string> {
   if (isContainerElement(element)) {
-    const vars = new Set()
+    const vars = new Set<string>()
     for (const sub of element.elements) {
       for (const name of elementNames(sub)) {
         vars.add(name)
