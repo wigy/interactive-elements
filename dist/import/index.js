@@ -15,3 +15,4 @@ __exportStar(require("./ImportCSVOptions"), exports);
 __exportStar(require("./ImportElement"), exports);
 __exportStar(require("./ImportState"), exports);
 __exportStar(require("./TextFileLine"), exports);
+//# sourceMappingURL=index.js.map

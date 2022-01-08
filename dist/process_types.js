@@ -19,3 +19,4 @@ var ProcessStatus;
     ProcessStatus["FAILED"] = "FAILED";
     ProcessStatus["CRASHED"] = "CRASHED";
 })(ProcessStatus = exports.ProcessStatus || (exports.ProcessStatus = {}));
+//# sourceMappingURL=process_types.js.map

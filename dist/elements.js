@@ -50,3 +50,4 @@ function isRadioElement(object) {
         && 'options' in object && typeof object['options'] === 'object');
 }
 exports.isRadioElement = isRadioElement;
+//# sourceMappingURL=elements.js.map
