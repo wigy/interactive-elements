@@ -176,12 +176,20 @@ export interface ContainerElement<ElementType = InteractiveElement> {
 }
 export declare function isContainerElement(object: unknown): object is ContainerElement;
 /**
- * A simple element container rendering each contained element one by one in DIV.
+ * A simple element container rendering each contained element one by one as they are.
  */
 export interface FlatElement<ElementType = InteractiveElement> extends ContainerElement<ElementType> {
     readonly type: 'flat';
 }
 export declare function isFlatElement(object: unknown): object is FlatElement;
+/**
+ * A container with visible frame around it.
+ */
+export interface BoxElement<ElementType = InteractiveElement> extends ContainerElement<ElementType> {
+    readonly type: 'box';
+    title?: string;
+}
+export declare function isBoxElement(object: unknown): object is BoxElement;
 /**
  * Generic base class for an element displaying some data content.
  */
@@ -205,4 +213,4 @@ export interface RadioElement<SetupType = Setup, ElementType = InteractiveElemen
     options: Record<string, string>;
 }
 export declare function isRadioElement(object: unknown): object is RadioElement;
-export declare type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | MessageElement | RadioElement;
+export declare type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement;

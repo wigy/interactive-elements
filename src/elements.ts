@@ -186,7 +186,7 @@ export interface BooleanElement <SetupType = Setup, ElementType = InteractiveEle
 }
 
 export function isBooleanElement(object: unknown): object is BooleanElement {
-  return typeof object === "object" && object !== null && object['type'] === 'boolean'
+  return isActiveElement(object) && object['type'] === 'boolean'
 }
 
 /**
@@ -197,7 +197,7 @@ export interface TextElement<SetupType = Setup, ElementType = InteractiveElement
 }
 
 export function isTextElement(object: unknown): object is TextElement {
-  return typeof object === "object" && object !== null && object['type'] === 'text'
+  return isActiveElement(object) && object['type'] === 'text'
 }
 
 /**
@@ -209,7 +209,7 @@ export interface ButtonElement<SetupType = Setup, ElementType = InteractiveEleme
 }
 
 export function isButtonElement(object: unknown): object is ButtonElement {
-  return typeof object === "object" && object !== null && object['type'] === 'button'
+  return isActiveElement(object) && object['type'] === 'button'
 }
 
 /**
@@ -224,14 +224,26 @@ export function isContainerElement(object: unknown): object is ContainerElement 
 }
 
 /**
- * A simple element container rendering each contained element one by one in DIV.
+ * A simple element container rendering each contained element one by one as they are.
  */
 export interface FlatElement<ElementType = InteractiveElement> extends ContainerElement<ElementType> {
   readonly type: 'flat'
 }
 
 export function isFlatElement(object: unknown): object is FlatElement {
-  return typeof object === "object" && object !== null && object['type'] === 'flat'
+  return isContainerElement(object) && object['type'] === 'flat'
+}
+
+/**
+ * A container with visible frame around it.
+ */
+export interface BoxElement<ElementType = InteractiveElement> extends ContainerElement<ElementType> {
+  readonly type: 'box'
+  title?: string
+}
+
+export function isBoxElement(object: unknown): object is BoxElement {
+  return isContainerElement(object) && object['type'] === 'box'
 }
 
 /**
@@ -266,9 +278,9 @@ export function isMessageElement(object: unknown): object is MessageElement {
 }
 
 export function isRadioElement(object: unknown): object is RadioElement {
-  return (typeof object === "object" && object !== null && object['type'] === 'radio'
+  return (isActiveElement(object) && object['type'] === 'radio'
     && 'options' in object && typeof object['options'] === 'object'
   )
 }
 
-export type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | MessageElement | RadioElement
+export type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isRadioElement = exports.isMessageElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
+exports.isRadioElement = exports.isMessageElement = exports.isBoxElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
 // eslint-disable-next-line
 function isPatchAction(obj) {
     return typeof obj === 'object' && 'url' in obj && obj.type === 'patch';
@@ -20,15 +20,15 @@ function isNamedElement(object) {
 }
 exports.isNamedElement = isNamedElement;
 function isBooleanElement(object) {
-    return typeof object === "object" && object !== null && object['type'] === 'boolean';
+    return isActiveElement(object) && object['type'] === 'boolean';
 }
 exports.isBooleanElement = isBooleanElement;
 function isTextElement(object) {
-    return typeof object === "object" && object !== null && object['type'] === 'text';
+    return isActiveElement(object) && object['type'] === 'text';
 }
 exports.isTextElement = isTextElement;
 function isButtonElement(object) {
-    return typeof object === "object" && object !== null && object['type'] === 'button';
+    return isActiveElement(object) && object['type'] === 'button';
 }
 exports.isButtonElement = isButtonElement;
 function isContainerElement(object) {
@@ -36,9 +36,13 @@ function isContainerElement(object) {
 }
 exports.isContainerElement = isContainerElement;
 function isFlatElement(object) {
-    return typeof object === "object" && object !== null && object['type'] === 'flat';
+    return isContainerElement(object) && object['type'] === 'flat';
 }
 exports.isFlatElement = isFlatElement;
+function isBoxElement(object) {
+    return isContainerElement(object) && object['type'] === 'box';
+}
+exports.isBoxElement = isBoxElement;
 function isMessageElement(object) {
     return (typeof object === "object" && object !== null && object['type'] === 'message'
         && 'severity' in object && ['info', 'warning', 'error', 'success'].includes(object['severity'])
@@ -46,7 +50,7 @@ function isMessageElement(object) {
 }
 exports.isMessageElement = isMessageElement;
 function isRadioElement(object) {
-    return (typeof object === "object" && object !== null && object['type'] === 'radio'
+    return (isActiveElement(object) && object['type'] === 'radio'
         && 'options' in object && typeof object['options'] === 'object');
 }
 exports.isRadioElement = isRadioElement;
