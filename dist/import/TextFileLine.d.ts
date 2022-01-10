@@ -1,4 +1,8 @@
 /**
+ * Name of a file.
+ */
+export declare type FileName = string;
+/**
  * A line number in file running form 0 to n-1.
  */
 export declare type LineNumber = number;

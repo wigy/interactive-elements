@@ -1,6 +1,7 @@
 "use strict";
+// TODO: Split to setup, trigger, action and element files.
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isRadioElement = exports.isMessageElement = exports.isHtmlElement = exports.isBoxElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
+exports.isRadioElement = exports.isTextFileLineElement = exports.isMessageElement = exports.isHtmlElement = exports.isBoxElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
 // eslint-disable-next-line
 function isPatchAction(obj) {
     return typeof obj === 'object' && 'url' in obj && obj.type === 'patch';
@@ -54,6 +55,11 @@ function isMessageElement(object) {
         && 'text' in object && typeof object['text'] === 'string');
 }
 exports.isMessageElement = isMessageElement;
+function isTextFileLineElement(object) {
+    return (typeof object === "object" && object !== null && object['type'] === 'textFileLine'
+        && 'line' in object && typeof object['line'] === 'object' && object['line'] !== null);
+}
+exports.isTextFileLineElement = isTextFileLineElement;
 function isRadioElement(object) {
     return (isActiveElement(object) && object['type'] === 'radio'
         && 'options' in object && typeof object['options'] === 'object');

@@ -1,4 +1,7 @@
 // TODO: Split to setup, trigger, action and element files.
+
+import { TextFileLine } from './import'
+
 /**
  * Default version of the configuration for the RISP setup.
  *
@@ -284,6 +287,20 @@ export function isMessageElement(object: unknown): object is MessageElement {
 }
 
 /**
+ * A display for an imported text file line.
+ */
+ export interface TextFileLineElement {
+  readonly type: 'textFileLine'
+  line: TextFileLine
+}
+
+export function isTextFileLineElement(object: unknown): object is TextFileLineElement {
+  return (typeof object === "object" && object !== null && object['type'] === 'textFileLine'
+    && 'line' in object && typeof object['line'] === 'object' && object['line'] !== null
+  )
+}
+
+/**
  * A collection of radio buttons.
  */
  export interface RadioElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
@@ -297,4 +314,4 @@ export function isRadioElement(object: unknown): object is RadioElement {
   )
 }
 
-export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement
+export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement

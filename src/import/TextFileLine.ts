@@ -1,4 +1,9 @@
 /**
+ * Name of a file.
+ */
+export type FileName = string
+
+/**
  * A line number in file running form 0 to n-1.
  */
 export type LineNumber = number
@@ -19,10 +24,10 @@ export const NO_SEGMENT = Symbol('NO_SEGMENT')
   * Contains line numbering starting from 0 and the text content of the line.
   */
 export interface TextFileLine {
-   line: LineNumber,
-   text: string,
-   columns: Record<string, string>
-   segmentId?: SegmentId,
+  line: LineNumber,
+  text: string,
+  columns: Record<string, string>
+  segmentId?: SegmentId,
 }
 
 /**

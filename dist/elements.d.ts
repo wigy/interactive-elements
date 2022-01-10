@@ -1,3 +1,4 @@
+import { TextFileLine } from './import';
 /**
  * Default version of the configuration for the RISP setup.
  *
@@ -214,6 +215,14 @@ export interface MessageElement {
 }
 export declare function isMessageElement(object: unknown): object is MessageElement;
 /**
+ * A display for an imported text file line.
+ */
+export interface TextFileLineElement {
+    readonly type: 'textFileLine';
+    line: TextFileLine;
+}
+export declare function isTextFileLineElement(object: unknown): object is TextFileLineElement;
+/**
  * A collection of radio buttons.
  */
 export interface RadioElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
@@ -221,4 +230,4 @@ export interface RadioElement<SetupType = Setup, ElementType = InteractiveElemen
     options: Record<string, string>;
 }
 export declare function isRadioElement(object: unknown): object is RadioElement;
-export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement;
+export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement;
