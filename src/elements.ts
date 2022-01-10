@@ -254,6 +254,20 @@ export interface ViewElement<DataType> {
 }
 
 /**
+ * A HTML element displayed as is.
+ */
+ export interface HtmlElement {
+  readonly type: 'html'
+  html: string
+}
+
+export function isHtmlElement(object: unknown): object is HtmlElement {
+  return (typeof object === "object" && object !== null && object['type'] === 'html'
+    && 'html' in object && typeof object['html'] === 'string'
+  )
+}
+
+/**
  * A text message displayed as is.
  */
 export interface MessageElement {
@@ -283,4 +297,4 @@ export function isRadioElement(object: unknown): object is RadioElement {
   )
 }
 
-export type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement
+export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement

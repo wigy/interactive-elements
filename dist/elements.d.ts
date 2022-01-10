@@ -197,6 +197,14 @@ export interface ViewElement<DataType> {
     data: DataType;
 }
 /**
+ * A HTML element displayed as is.
+ */
+export interface HtmlElement {
+    readonly type: 'html';
+    html: string;
+}
+export declare function isHtmlElement(object: unknown): object is HtmlElement;
+/**
  * A text message displayed as is.
  */
 export interface MessageElement {
@@ -213,4 +221,4 @@ export interface RadioElement<SetupType = Setup, ElementType = InteractiveElemen
     options: Record<string, string>;
 }
 export declare function isRadioElement(object: unknown): object is RadioElement;
-export declare type InteractiveElement = BooleanElement | TextElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement;
+export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | RadioElement;
