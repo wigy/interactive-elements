@@ -68,6 +68,7 @@ export interface DebugAction {
  export interface PatchAction {
   readonly type: 'patch'
   url: string
+  objectWrapLevel?: number
   errorMessage?: string
   successMessage?: string
 }
@@ -82,6 +83,7 @@ return typeof obj === 'object' && 'url' in obj && obj.type === 'patch'
  export interface PostAction {
   readonly type: 'post'
   url: string
+  objectWrapLevel?: number
   errorMessage?: string
   successMessage?: string
 }

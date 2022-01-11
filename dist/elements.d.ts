@@ -60,6 +60,7 @@ export interface DebugAction {
 export interface PatchAction {
     readonly type: 'patch';
     url: string;
+    objectWrapLevel?: number;
     errorMessage?: string;
     successMessage?: string;
 }
@@ -70,6 +71,7 @@ export declare function isPatchAction(obj: any): obj is PatchAction;
 export interface PostAction {
     readonly type: 'post';
     url: string;
+    objectWrapLevel?: number;
     errorMessage?: string;
     successMessage?: string;
 }
