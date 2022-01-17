@@ -72,9 +72,8 @@ export interface DebugAction {
   errorMessage?: string
   successMessage?: string
 }
-// eslint-disable-next-line
-export function isPatchAction(obj: any): obj is PatchAction {
-return typeof obj === 'object' && 'url' in obj && obj.type === 'patch'
+export function isPatchAction(obj: unknown): obj is PatchAction {
+return typeof obj === 'object' && obj !== null && 'url' in obj && obj['type'] === 'patch'
 }
 
 /**
@@ -87,9 +86,8 @@ return typeof obj === 'object' && 'url' in obj && obj.type === 'patch'
   errorMessage?: string
   successMessage?: string
 }
-// eslint-disable-next-line
-export function isPostAction(obj: any): obj is PostAction {
-  return typeof obj === 'object' && 'url' in obj && obj.type === 'post'
+export function isPostAction(obj: unknown): obj is PostAction {
+  return typeof obj === 'object' && obj !== null && 'url' in obj && obj['type'] === 'post'
 }
 
 /**

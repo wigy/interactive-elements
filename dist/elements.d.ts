@@ -64,7 +64,7 @@ export interface PatchAction {
     errorMessage?: string;
     successMessage?: string;
 }
-export declare function isPatchAction(obj: any): obj is PatchAction;
+export declare function isPatchAction(obj: unknown): obj is PatchAction;
 /**
  * Payload of `post` action.
  */
@@ -75,7 +75,7 @@ export interface PostAction {
     errorMessage?: string;
     successMessage?: string;
 }
-export declare function isPostAction(obj: any): obj is PostAction;
+export declare function isPostAction(obj: unknown): obj is PostAction;
 /**
  * Payload for the action execution.
  */
