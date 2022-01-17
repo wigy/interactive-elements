@@ -1,7 +1,7 @@
 "use strict";
 // TODO: Split to setup, trigger, action and element files.
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isRadioElement = exports.isTextFileLineElement = exports.isMessageElement = exports.isHtmlElement = exports.isBoxElement = exports.isFlatElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
+exports.isRadioElement = exports.isTextFileLineElement = exports.isMessageElement = exports.isHtmlElement = exports.isBoxElement = exports.isFlatElement = exports.isCaseElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
 function isPatchAction(obj) {
     return typeof obj === 'object' && obj !== null && 'url' in obj && obj['type'] === 'patch';
 }
@@ -31,9 +31,14 @@ function isButtonElement(object) {
 }
 exports.isButtonElement = isButtonElement;
 function isContainerElement(object) {
-    return typeof object === "object" && object !== null && !!object['elements'];
+    return typeof object === "object" && object !== null && object['elements'];
 }
 exports.isContainerElement = isContainerElement;
+function isCaseElement(object) {
+    return (typeof object === "object" && object !== null && object['condition'] && object['cases'] &&
+        typeof object['cases'] === 'object' && object['cases'] !== null);
+}
+exports.isCaseElement = isCaseElement;
 function isFlatElement(object) {
     return isContainerElement(object) && object['type'] === 'flat';
 }

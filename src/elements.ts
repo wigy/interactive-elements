@@ -223,7 +223,22 @@ export interface ContainerElement<ElementType = InteractiveElement> {
 }
 
 export function isContainerElement(object: unknown): object is ContainerElement {
-  return typeof object === "object" && object !== null && !!object['elements']
+  return typeof object === "object" && object !== null && object['elements']
+}
+
+/**
+ * A structural element choosing what to show from the value of some other element.
+ */
+export interface CaseElement<ElementType = InteractiveElement> {
+  readonly type: 'case'
+  condition: string
+  cases: Record<string, ElementType>
+  default?: string
+}
+export function isCaseElement(object: unknown): object is CaseElement {
+  return (typeof object === "object" && object !== null && object['condition'] && object['cases'] &&
+    typeof object['cases'] === 'object' && object['cases'] !== null
+  )
 }
 
 /**
@@ -314,4 +329,4 @@ export function isRadioElement(object: unknown): object is RadioElement {
   )
 }
 
-export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement
+export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement

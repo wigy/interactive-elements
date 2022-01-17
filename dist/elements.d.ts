@@ -179,6 +179,16 @@ export interface ContainerElement<ElementType = InteractiveElement> {
 }
 export declare function isContainerElement(object: unknown): object is ContainerElement;
 /**
+ * A structural element choosing what to show from the value of some other element.
+ */
+export interface CaseElement<ElementType = InteractiveElement> {
+    readonly type: 'case';
+    condition: string;
+    cases: Record<string, ElementType>;
+    default?: string;
+}
+export declare function isCaseElement(object: unknown): object is CaseElement;
+/**
  * A simple element container rendering each contained element one by one as they are.
  */
 export interface FlatElement<ElementType = InteractiveElement> extends ContainerElement<ElementType> {
@@ -232,4 +242,4 @@ export interface RadioElement<SetupType = Setup, ElementType = InteractiveElemen
     options: Record<string, string>;
 }
 export declare function isRadioElement(object: unknown): object is RadioElement;
-export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement;
+export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement;
