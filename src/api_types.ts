@@ -4,6 +4,7 @@ import { ProcessConfig, ProcessName, ProcessStatus } from "./process_types"
  * An ID for database entries.
  */
 export type ID = number | null
+export type RealID = number
 
 /**
  * Response for process listing.

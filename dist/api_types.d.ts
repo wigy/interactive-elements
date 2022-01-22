@@ -3,6 +3,7 @@ import { ProcessConfig, ProcessName, ProcessStatus } from "./process_types";
  * An ID for database entries.
  */
 export declare type ID = number | null;
+export declare type RealID = number;
 /**
  * Response for process listing.
  */
