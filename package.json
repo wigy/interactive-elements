@@ -10,10 +10,8 @@
     "build": "rm -rf dist/* && tsc",
     "doc": "rm -fr doc/* && typedoc --out doc src/index.ts",
     "doc:watch": "typedoc --watch --out doc src/index.ts",
-    "test": "echo No tests yet. Just definitions.",
     "lint": "eslint src/*.ts",
-    "lint:fix": "eslint --fix src/*.ts",
-    "test:ci": "yarn run lint && yarn test"
+    "lint:fix": "eslint --fix src/*.ts"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.9.1",
