@@ -166,6 +166,14 @@ export declare function isYesNoElement(object: unknown): object is YesNoElement;
 /**
  * A text editing element.
  */
+export interface NumberElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+    readonly type: 'number';
+    unit?: string;
+}
+export declare function isNumberElement(object: unknown): object is NumberElement;
+/**
+ * A text editing element.
+ */
 export interface TextElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
     readonly type: 'text';
 }
@@ -249,4 +257,4 @@ export interface RadioElement<SetupType = Setup, ElementType = InteractiveElemen
     options: Record<string, string>;
 }
 export declare function isRadioElement(object: unknown): object is RadioElement;
-export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement | YesNoElement;
+export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement | YesNoElement | NumberElement;

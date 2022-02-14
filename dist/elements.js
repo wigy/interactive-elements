@@ -1,7 +1,7 @@
 "use strict";
 // TODO: Split to setup, trigger, action and element files.
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isRadioElement = exports.isTextFileLineElement = exports.isMessageElement = exports.isHtmlElement = exports.isBoxElement = exports.isFlatElement = exports.isCaseElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isYesNoElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
+exports.isRadioElement = exports.isTextFileLineElement = exports.isMessageElement = exports.isHtmlElement = exports.isBoxElement = exports.isFlatElement = exports.isCaseElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isNumberElement = exports.isYesNoElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
 function isPatchAction(obj) {
     return typeof obj === 'object' && obj !== null && 'url' in obj && obj['type'] === 'patch';
 }
@@ -26,6 +26,10 @@ function isYesNoElement(object) {
     return isActiveElement(object) && object['type'] === 'yesno';
 }
 exports.isYesNoElement = isYesNoElement;
+function isNumberElement(object) {
+    return isActiveElement(object) && object['type'] === 'number';
+}
+exports.isNumberElement = isNumberElement;
 function isTextElement(object) {
     return isActiveElement(object) && object['type'] === 'text';
 }

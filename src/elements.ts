@@ -206,7 +206,19 @@ export function isYesNoElement(object: unknown): object is YesNoElement {
 /**
  * A text editing element.
  */
-export interface TextElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+export interface NumberElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+  readonly type: 'number'
+  unit?: string
+}
+
+export function isNumberElement(object: unknown): object is NumberElement {
+  return isActiveElement(object) && object['type'] === 'number'
+}
+
+/**
+ * A text editing element.
+ */
+ export interface TextElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
   readonly type: 'text'
 }
 
@@ -340,4 +352,4 @@ export function isRadioElement(object: unknown): object is RadioElement {
   )
 }
 
-export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement | YesNoElement
+export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement | YesNoElement | NumberElement
