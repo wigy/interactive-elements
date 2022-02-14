@@ -157,6 +157,13 @@ export interface BooleanElement<SetupType = Setup, ElementType = InteractiveElem
 }
 export declare function isBooleanElement(object: unknown): object is BooleanElement;
 /**
+ * A boolean element using radio buttons for Yes and No.
+ */
+export interface YesNoElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+    readonly type: 'yesno';
+}
+export declare function isYesNoElement(object: unknown): object is YesNoElement;
+/**
  * A text editing element.
  */
 export interface TextElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
@@ -242,4 +249,4 @@ export interface RadioElement<SetupType = Setup, ElementType = InteractiveElemen
     options: Record<string, string>;
 }
 export declare function isRadioElement(object: unknown): object is RadioElement;
-export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement;
+export declare type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement | YesNoElement;

@@ -7,7 +7,7 @@ import { TextFileLine } from './import'
  *
  * @property baseUrl Base address for HTPP requests.
  */
- export interface Setup {
+export interface Setup {
   baseUrl?: string
   token?: string
   errorMessage?: (message: string) => void
@@ -65,7 +65,7 @@ export interface DebugAction {
 /**
  * Payload of the `patch` action.
  */
- export interface PatchAction {
+export interface PatchAction {
   readonly type: 'patch'
   url: string
   objectWrapLevel?: number
@@ -73,13 +73,13 @@ export interface DebugAction {
   successMessage?: string
 }
 export function isPatchAction(obj: unknown): obj is PatchAction {
-return typeof obj === 'object' && obj !== null && 'url' in obj && obj['type'] === 'patch'
+  return typeof obj === 'object' && obj !== null && 'url' in obj && obj['type'] === 'patch'
 }
 
 /**
  * Payload of `post` action.
  */
- export interface PostAction {
+export interface PostAction {
   readonly type: 'post'
   url: string
   objectWrapLevel?: number
@@ -184,12 +184,23 @@ export function isNamedElement(object: unknown): object is NamedElement {
 /**
  * A boolean toggle element.
  */
-export interface BooleanElement <SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+export interface BooleanElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
   readonly type: 'boolean'
 }
 
 export function isBooleanElement(object: unknown): object is BooleanElement {
   return isActiveElement(object) && object['type'] === 'boolean'
+}
+
+/**
+ * A boolean element using radio buttons for Yes and No.
+ */
+export interface YesNoElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+  readonly type: 'yesno'
+}
+
+export function isYesNoElement(object: unknown): object is YesNoElement {
+  return isActiveElement(object) && object['type'] === 'yesno'
 }
 
 /**
@@ -274,7 +285,7 @@ export interface ViewElement<DataType> {
 /**
  * A HTML element displayed as is.
  */
- export interface HtmlElement {
+export interface HtmlElement {
   readonly type: 'html'
   html: string
 }
@@ -304,7 +315,7 @@ export function isMessageElement(object: unknown): object is MessageElement {
 /**
  * A display for an imported text file line.
  */
- export interface TextFileLineElement {
+export interface TextFileLineElement {
   readonly type: 'textFileLine'
   line: TextFileLine
 }
@@ -318,7 +329,7 @@ export function isTextFileLineElement(object: unknown): object is TextFileLineEl
 /**
  * A collection of radio buttons.
  */
- export interface RadioElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
+export interface RadioElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType>, NamedElement {
   readonly type: 'radio'
   options: Record<string, string>
 }
@@ -329,4 +340,4 @@ export function isRadioElement(object: unknown): object is RadioElement {
   )
 }
 
-export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement
+export type InteractiveElement = BooleanElement | TextElement | HtmlElement | ButtonElement | FlatElement | BoxElement | MessageElement | TextFileLineElement | RadioElement | CaseElement | YesNoElement
