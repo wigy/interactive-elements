@@ -184,6 +184,7 @@ export declare function isTextElement(object: unknown): object is TextElement;
 export interface ButtonElement<SetupType = Setup, ElementType = InteractiveElement, ActionType = Action> extends ActiveElement<SetupType, ElementType, ActionType> {
     readonly type: 'button';
     label: string;
+    requires?: string | string[];
 }
 export declare function isButtonElement(object: unknown): object is ButtonElement;
 /**
