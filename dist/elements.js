@@ -39,7 +39,7 @@ function isButtonElement(object) {
 }
 exports.isButtonElement = isButtonElement;
 function isContainerElement(object) {
-    return typeof object === "object" && object !== null && object['elements'];
+    return typeof object === "object" && object !== null && !!object['elements'];
 }
 exports.isContainerElement = isContainerElement;
 function isCaseElement(object) {

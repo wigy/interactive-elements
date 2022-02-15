@@ -247,7 +247,7 @@ export interface ContainerElement<ElementType = InteractiveElement> {
 }
 
 export function isContainerElement(object: unknown): object is ContainerElement {
-  return typeof object === "object" && object !== null && object['elements']
+  return typeof object === "object" && object !== null && !!object['elements']
 }
 
 /**
