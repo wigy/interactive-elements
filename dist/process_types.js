@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * Definitions for some process fields.
+ * @module
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessStatus = void 0;
 /**
@@ -10,6 +14,7 @@ exports.ProcessStatus = void 0;
  *  * FAILED - The process is completed unsuccessfully.
  *  * CRASHED - A handler has crashed at some point and process is halted.
  *
+ * @enum
  */
 var ProcessStatus;
 (function (ProcessStatus) {

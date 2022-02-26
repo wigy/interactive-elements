@@ -21,7 +21,7 @@ export interface ImportAnswerAction {
 }
 export declare function isImportAnswerAction(obj: unknown): obj is ImportAnswerAction;
 /**
- * Import strep as an action.
+ * Import step as an action.
  */
-export declare type ImportAction = ImportOpAction | ImportConfigureAction;
+export declare type ImportAction = ImportOpAction | ImportConfigureAction | ImportAnswerAction;
 export declare function isImportAction(obj: unknown): obj is ImportAction;
