@@ -5,7 +5,7 @@ import { InteractiveElement } from './elements';
  */
 export declare function elementNames<ElementType = InteractiveElement>(element: ElementType): Set<string>;
 /**
- * Utility to heuristically convert nessy string to number.
+ * Utility to heuristically convert messy string to number.
  * @param str
  * @returns
  */

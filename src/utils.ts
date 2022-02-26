@@ -20,7 +20,7 @@ export function elementNames<ElementType=InteractiveElement>(element: ElementTyp
 }
 
 /**
- * Utility to heuristically convert nessy string to number.
+ * Utility to heuristically convert messy string to number.
  * @param str
  * @returns
  */

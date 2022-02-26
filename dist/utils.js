@@ -23,7 +23,7 @@ function elementNames(element) {
 }
 exports.elementNames = elementNames;
 /**
- * Utility to heuristically convert nessy string to number.
+ * Utility to heuristically convert messy string to number.
  * @param str
  * @returns
  */
