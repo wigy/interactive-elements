@@ -46,9 +46,9 @@ export function isImportAnswerAction(obj: unknown): obj is ImportAnswerAction {
 }
 
 /**
- * Import strep as an action.
+ * Import step as an action.
  */
-export type ImportAction = ImportOpAction | ImportConfigureAction
+export type ImportAction = ImportOpAction | ImportConfigureAction | ImportAnswerAction
 
 export function isImportAction(obj: unknown): obj is ImportAction {
   return isImportOpAction(obj) || isImportConfigureAction(obj) || isImportAnswerAction(obj)

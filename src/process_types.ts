@@ -1,4 +1,9 @@
 /**
+ * Definitions for some process fields.
+ * @module
+ */
+
+/**
  * Configuration data for a process.
  */
 export type ProcessConfig = Record<string, unknown>
@@ -23,6 +28,7 @@ export type FileEncoding = 'utf-8' | 'base64' | 'json'
  *  * FAILED - The process is completed unsuccessfully.
  *  * CRASHED - A handler has crashed at some point and process is halted.
  *
+ * @enum
  */
 export enum ProcessStatus {
   INCOMPLETE = "INCOMPLETE",
