@@ -11,9 +11,14 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Type definitions and some essential utilities for Interactive Stateful Processes.
  * @module
+ *
+ * # Interactive Elements
+ *
+ * This module contains type definitions and some essential utilities for Interactive Stateful Processes.
+ *
  */
+// TODO: Add link to the overview of the system.
 __exportStar(require("./api_types"), exports);
 __exportStar(require("./elements"), exports);
 __exportStar(require("./import"), exports);

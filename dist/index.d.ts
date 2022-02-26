@@ -1,6 +1,10 @@
 /**
- * Type definitions and some essential utilities for Interactive Stateful Processes.
  * @module
+ *
+ * # Interactive Elements
+ *
+ * This module contains type definitions and some essential utilities for Interactive Stateful Processes.
+ *
  */
 export * from './api_types';
 export * from './elements';
