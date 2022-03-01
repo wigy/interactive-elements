@@ -1,6 +1,7 @@
 /**
  * Types used in the importing data to the system using Interactive Stateful Process.
- * @category Import
+ * @packageDocumentation
+ * @module
  */
 export * from './ImportAction';
 export * from './ImportCSVOptions';

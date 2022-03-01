@@ -12,7 +12,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Types used in the importing data to the system using Interactive Stateful Process.
- * @category Import
+ * @packageDocumentation
+ * @module
  */
 __exportStar(require("./ImportAction"), exports);
 __exportStar(require("./ImportCSVOptions"), exports);
