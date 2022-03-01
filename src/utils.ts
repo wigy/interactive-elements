@@ -1,12 +1,16 @@
 /**
- * Definitions for some process fields.
+ * Utility functions for interactive processes.
+ *
+ * @module
  */
 
 import { InteractiveElement, isContainerElement, isNamedElement } from './elements'
 
 /**
  * Collect all names defined in the element structure.
- * @param element
+ * @returns
+ * All {@link ContainerElement | container elements} are scanned recursively and names of the {@link NamedElement | named elements}
+ * are collected.
  */
 export function elementNames<ElementType=InteractiveElement>(element: ElementType): Set<string> {
   if (isContainerElement(element)) {
@@ -24,9 +28,9 @@ export function elementNames<ElementType=InteractiveElement>(element: ElementTyp
 }
 
 /**
- * Utility to heuristically convert messy string to number.
- * @param str
+ * Utility to heuristically convert a messy string to number.
  * @returns
+ * The string is stripped off extra spaces and all but last punctuation.
  */
  export function num(str: string): number | typeof NaN {
   str = str.replace(/\s/g, '')
