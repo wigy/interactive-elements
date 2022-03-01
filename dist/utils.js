@@ -1,10 +1,17 @@
 "use strict";
+/**
+ * Utility functions for interactive processes.
+ *
+ * @module
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.num = exports.elementNames = void 0;
 const elements_1 = require("./elements");
 /**
  * Collect all names defined in the element structure.
- * @param element
+ * @returns
+ * All {@link ContainerElement | container elements} are scanned recursively and names of the {@link NamedElement | named elements}
+ * are collected.
  */
 function elementNames(element) {
     if ((0, elements_1.isContainerElement)(element)) {
@@ -23,9 +30,9 @@ function elementNames(element) {
 }
 exports.elementNames = elementNames;
 /**
- * Utility to heuristically convert messy string to number.
- * @param str
+ * Utility to heuristically convert a messy string to number.
  * @returns
+ * The string is stripped off extra spaces and all but last punctuation.
  */
 function num(str) {
     str = str.replace(/\s/g, '');
