@@ -1,3 +1,7 @@
+/**
+ * Definitions for some process fields.
+ */
+
 import { InteractiveElement, isContainerElement, isNamedElement } from './elements'
 
 /**

@@ -4,7 +4,7 @@
  *
  * This module contains type definitions and some essential utilities for Interactive Stateful Processes.
  *
- * @module
+ * @module interactive-elements
  */
 // TODO: Add link to the overview of the system.
 export * from './api_types'
