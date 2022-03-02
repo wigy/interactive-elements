@@ -6,7 +6,7 @@
  *
  * @module interactive-elements
  */
-/** @hidden */
+/** @hidden Dummy definition to force inclusion of this file to documentation */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const __interactive_elements = null;
 //# sourceMappingURL=doccer.js.map

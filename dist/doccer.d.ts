@@ -6,5 +6,5 @@
  *
  * @module interactive-elements
  */
-/** @hidden */
+/** @hidden Dummy definition to force inclusion of this file to documentation */
 declare const __interactive_elements: null;
