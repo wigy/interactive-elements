@@ -1,4 +1,9 @@
 /**
+ * Some utility type definitions for processing.
+ *
+ * @module interactive-elements/src/process_types
+ */
+/**
  * Definitions for some process fields.
  *
  * @module

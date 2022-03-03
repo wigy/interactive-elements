@@ -1,4 +1,9 @@
-import { ProcessConfig, ProcessName, ProcessStatus } from "./process_types"
+/**
+ * Definitions for API data passed in interactive stateful processing.
+ *
+ * @module interactive-elements/src/api_types
+ */
+ import { ProcessConfig, ProcessName, ProcessStatus } from "./process_types"
 
 /**
  * An ID for database entries.

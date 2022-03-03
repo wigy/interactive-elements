@@ -1,7 +1,7 @@
 /**
  * Utility functions for interactive processes.
  *
- * @module
+ * @module interactive-elements/src/utils
  */
 
 import { InteractiveElement, isContainerElement, isNamedElement } from './elements'

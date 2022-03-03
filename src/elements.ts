@@ -1,4 +1,10 @@
-// TODO: Split to setup, trigger, action and element files.
+/**
+ * Type defintions for processing and triggering element actions.
+ *
+ * @module interactive-elements/src/elements
+ */
+// TODO: Split to separate dir with setup, trigger, action and element files.
+// TODO: Rename module.
 
 import { TextFileLine } from './import'
 
