@@ -1,5 +1,11 @@
 "use strict";
-// TODO: Split to setup, trigger, action and element files.
+/**
+ * Type defintions for processing and triggering element actions.
+ *
+ * @module interactive-elements/src/elements
+ */
+// TODO: Split to separate dir with setup, trigger, action and element files.
+// TODO: Rename module.
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isRadioElement = exports.isTextFileLineElement = exports.isMessageElement = exports.isHtmlElement = exports.isBoxElement = exports.isFlatElement = exports.isCaseElement = exports.isContainerElement = exports.isButtonElement = exports.isTextElement = exports.isNumberElement = exports.isYesNoElement = exports.isBooleanElement = exports.isNamedElement = exports.isActiveElement = exports.isPostAction = exports.isPatchAction = void 0;
 function isPatchAction(obj) {

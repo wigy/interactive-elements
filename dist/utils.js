@@ -2,7 +2,7 @@
 /**
  * Utility functions for interactive processes.
  *
- * @module
+ * @module interactive-elements/src/utils
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.num = exports.elementNames = void 0;

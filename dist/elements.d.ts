@@ -1,3 +1,8 @@
+/**
+ * Type defintions for processing and triggering element actions.
+ *
+ * @module interactive-elements/src/elements
+ */
 import { TextFileLine } from './import';
 /**
  * Default version of the configuration for the RISP setup.

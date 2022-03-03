@@ -7,4 +7,4 @@
  * @module interactive-elements
  */
 /** @hidden Dummy definition to force inclusion of this file to documentation */
-declare const __interactive_elements: null;
+declare const __interactiveElements: null;
