@@ -1,7 +1,20 @@
 /**
- * Types used in the importing data to the system using Interactive Stateful Process.
+ * ## Importing
  *
- * TODO: Overview of Import diagram and explanation
+ * This module has types used in the importing data to the system using Interactive Stateful Process.
+ *
+ * ### Importing Process
+ *
+ * The import processing goes through the following stages:
+ *
+ * ```mermaid
+ * flowchart LR
+ *    START --> segmentation
+ *    segmentation --> classification
+ *    classification --> analyze
+ *    analyze --> execution
+ *    execution --> DONE
+ * ```
  *
  * @module interactive-elements/src/import
  */
