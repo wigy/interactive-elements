@@ -6,7 +6,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.num = exports.elementNames = void 0;
-const elements_1 = require("./elements");
+const risp_1 = require("./risp");
 /**
  * Collect all names defined in the element structure.
  * @returns
@@ -14,7 +14,7 @@ const elements_1 = require("./elements");
  * are collected.
  */
 function elementNames(element) {
-    if ((0, elements_1.isContainerElement)(element)) {
+    if ((0, risp_1.isContainerElement)(element)) {
         const vars = new Set();
         for (const sub of element.elements) {
             for (const name of elementNames(sub)) {
@@ -23,7 +23,7 @@ function elementNames(element) {
         }
         return vars;
     }
-    else if ((0, elements_1.isNamedElement)(element)) {
+    else if ((0, risp_1.isNamedElement)(element)) {
         return new Set([element.name]);
     }
     return new Set();

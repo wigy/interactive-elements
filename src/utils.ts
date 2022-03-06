@@ -4,7 +4,7 @@
  * @module interactive-elements/src/utils
  */
 
-import { InteractiveElement, isContainerElement, isNamedElement } from './elements'
+import { InteractiveElement, isContainerElement, isNamedElement } from './risp'
 
 /**
  * Collect all names defined in the element structure.

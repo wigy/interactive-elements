@@ -3,7 +3,7 @@
  *
  * @module interactive-elements/src/utils
  */
-import { InteractiveElement } from './elements';
+import { InteractiveElement } from './risp';
 /**
  * Collect all names defined in the element structure.
  * @returns
