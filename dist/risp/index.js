@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * Type defintions for processing and triggering element actions.
+ *
+ * @module interactive-elements/src/risp
+ */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -10,8 +15,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./risp"), exports);
-__exportStar(require("./import"), exports);
-__exportStar(require("./process_types"), exports);
-__exportStar(require("./utils"), exports);
+__exportStar(require("./actions"), exports);
+__exportStar(require("./elements"), exports);
+__exportStar(require("./rendering"), exports);
+__exportStar(require("./setup"), exports);
+__exportStar(require("./triggers"), exports);
 //# sourceMappingURL=index.js.map

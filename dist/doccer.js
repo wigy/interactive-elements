@@ -6,8 +6,7 @@
  *
  * ## Sub-modules
  *
- * * [api_types](interactive_elements_src_api_types.html)
- * * [elements](interactive_elements_src_elements.html)
+ * * [risp](interactive_elements_src_risp.html)
  * * [import](interactive_elements_src_import.html)
  * * [process_types](interactive_elements_src_process_types.html)
  * * [utils](interactive_elements_src_utils.html)
