@@ -43,9 +43,6 @@ function num(str) {
         else if (/\.\d+,/.test(str)) {
             str = str.replace(/\./g, '').replace(/,/, '.');
         }
-        else if (/^\d+[,.]\d\d\d$/.test(str)) {
-            str = str.replace(/[,.]/g, '');
-        }
         else {
             str = str.replace(',', '.');
         }
