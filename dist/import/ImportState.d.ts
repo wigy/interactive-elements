@@ -11,6 +11,7 @@ export declare type ImportStateText<StageType> = {
     };
     segments?: Record<SegmentId, ImportSegment>;
     result?: Record<SegmentId, unknown>;
+    output?: Record<string, unknown>;
 };
 /**
  * Union of all import states.
