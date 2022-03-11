@@ -44,9 +44,23 @@ export declare enum ProcessStatus {
 export declare type ID = number | null;
 export declare type RealID = number;
 /**
+ * Response for single process step fetch.ProcessStepModelData
+ */
+export declare type ProcessStepModelData = {
+    id: ID;
+    processId?: ID;
+    number: number;
+    started: Date;
+    finished: Date;
+    handler: string;
+    directions: null | Record<string, unknown>;
+    action: null | Record<string, unknown>;
+    state: Record<string, unknown>;
+};
+/**
  * Response for process listing.
  */
-export declare type GetAllProcessesApiResponse = {
+export declare type ProcessModelData = {
     id: ID;
     ownerId: ID;
     name: ProcessName;
@@ -61,7 +75,7 @@ export declare type GetAllProcessesApiResponse = {
 /**
  * Response for single process fetch.
  */
-export declare type GetOneProcessResponse = {
+export declare type ProcessModelDetailedData = {
     id: ID;
     ownerId: ID;
     name: ProcessName;
@@ -69,29 +83,8 @@ export declare type GetOneProcessResponse = {
     complete: boolean;
     successful: boolean;
     currentStep: number;
-    steps: {
-        id: ID;
-        action: Record<string, unknown>;
-        directions: Record<string, unknown>;
-        number: number;
-        started: Date;
-        finished: Date;
-    }[];
+    steps: ProcessStepModelData[];
     status: ProcessStatus;
     error?: string;
     created: Date;
-};
-/**
- * Response for single process step fetch.
- */
-export declare type GetOneStepResponse = {
-    id: ID;
-    processId: ID;
-    number: number;
-    started: Date;
-    finished: Date;
-    handler: string;
-    directions: null | Record<string, unknown>;
-    action: null | Record<string, unknown>;
-    state: Record<string, unknown>;
 };

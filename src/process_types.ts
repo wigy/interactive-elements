@@ -51,9 +51,24 @@ export type ID = number | null
 export type RealID = number
 
 /**
+ * Response for single process step fetch.ProcessStepModelData
+ */
+export type ProcessStepModelData = {
+  id: ID
+  processId?: ID
+  number: number
+  started: Date
+  finished: Date
+  handler: string
+  directions: null | Record<string, unknown>
+  action: null | Record<string, unknown>
+  state: Record<string, unknown>
+}
+
+/**
  * Response for process listing.
  */
-export type GetAllProcessesApiResponse = {
+export type ProcessModelData = {
   id: ID
   ownerId: ID
   name: ProcessName
@@ -69,7 +84,7 @@ export type GetAllProcessesApiResponse = {
 /**
  * Response for single process fetch.
  */
-export type GetOneProcessResponse = {
+export type ProcessModelDetailedData = {
   id: ID
   ownerId: ID
   name: ProcessName
@@ -77,30 +92,8 @@ export type GetOneProcessResponse = {
   complete: boolean
   successful: boolean
   currentStep: number
-  steps: {
-    id: ID
-    action: Record<string, unknown>
-    directions: Record<string, unknown>
-    number: number
-    started: Date
-    finished: Date
-  }[]
+  steps: ProcessStepModelData[]
   status: ProcessStatus
   error?: string
   created: Date
-}
-
-/**
- * Response for single process step fetch.
- */
-export type GetOneStepResponse = {
-  id: ID
-  processId: ID
-  number: number
-  started: Date
-  finished: Date
-  handler: string
-  directions: null | Record<string, unknown>
-  action: null | Record<string, unknown>
-  state: Record<string, unknown>
 }
