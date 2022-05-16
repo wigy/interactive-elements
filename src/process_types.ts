@@ -79,7 +79,7 @@ export type ProcessModelData = {
   status: ProcessStatus
   error?: string
   created: Date
-}[]
+}
 
 /**
  * Response for single process fetch.
