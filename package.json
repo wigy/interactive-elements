@@ -1,6 +1,6 @@
 {
   "name": "interactive-elements",
-  "version": "1.0.80",
+  "version": "1.0.81",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Tommi Ronkainen <tommi.ronkainen@gmail.com>",
