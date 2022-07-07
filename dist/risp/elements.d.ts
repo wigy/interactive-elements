@@ -73,7 +73,7 @@ export interface CaseElement<ElementType = InteractiveElement> {
     readonly type: 'case';
     condition: string;
     cases: Record<string, ElementType>;
-    default?: string;
+    defaultValue?: string;
 }
 export declare function isCaseElement(object: unknown): object is CaseElement;
 /**

@@ -106,7 +106,7 @@ export interface CaseElement<ElementType = InteractiveElement> {
   readonly type: 'case'
   condition: string
   cases: Record<string, ElementType>
-  default?: string
+  defaultValue?: string
 }
 export function isCaseElement(object: unknown): object is CaseElement {
   return (typeof object === "object" && object !== null && object['condition'] && object['cases'] &&
