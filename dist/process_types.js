@@ -10,7 +10,7 @@
  * @module
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessStatus = void 0;
+exports.isID = exports.isRealID = exports.ProcessStatus = void 0;
 /**
  * Overall status of the process.
  *
@@ -30,4 +30,8 @@ var ProcessStatus;
     ProcessStatus["FAILED"] = "FAILED";
     ProcessStatus["CRASHED"] = "CRASHED";
 })(ProcessStatus = exports.ProcessStatus || (exports.ProcessStatus = {}));
+const isRealID = (id) => typeof id === 'number';
+exports.isRealID = isRealID;
+const isID = (id) => (0, exports.isRealID)(id) || id === null;
+exports.isID = isID;
 //# sourceMappingURL=process_types.js.map

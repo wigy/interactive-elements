@@ -47,8 +47,11 @@ export enum ProcessStatus {
 /**
  * An ID for database entries.
  */
-export type ID = number | null
 export type RealID = number
+export type ID = RealID | null
+
+export const isRealID = (id: unknown): id is RealID => typeof id === 'number'
+export const isID = (id: unknown): id is ID => isRealID(id) || id === null
 
 /**
  * Response for single process step fetch.ProcessStepModelData
