@@ -31,13 +31,7 @@ export declare type FileEncoding = 'utf-8' | 'base64' | 'json';
  *
  * @enum
  */
-export declare enum ProcessStatus {
-    INCOMPLETE = "INCOMPLETE",
-    WAITING = "WAITING",
-    SUCCEEDED = "SUCCEEDED",
-    FAILED = "FAILED",
-    CRASHED = "CRASHED"
-}
+export declare type ProcessStatus = 'INCOMPLETE' | 'WAITING' | 'SUCCEEDED' | 'FAILED' | 'CRASHED';
 /**
  * An ID for database entries.
  */

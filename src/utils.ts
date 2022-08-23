@@ -32,7 +32,7 @@ export function elementNames<ElementType=InteractiveElement>(element: ElementTyp
  * @returns
  * The string is stripped off extra spaces and all but last punctuation.
  */
- export function num(str: string): number | typeof NaN {
+export function num(str: string): number | typeof NaN {
   str = str.replace(/\s/g, '')
   try {
     if (/,\d+\./.test(str)) {
