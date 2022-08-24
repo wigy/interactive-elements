@@ -9,6 +9,7 @@ async function run() {
     minify: !isDev,
     incremental: isDev,
     platform: 'node',
+    sourcemap: 'external',
     watch: isDev && {
       onRebuild(error, result) {
         if (error) console.error('Watch build failed:', error)
