@@ -11,7 +11,8 @@
         "target": "es2020"
     },
     "include": [
-        "src/**/*"
+        "src/index.ts",
+        "src/doccer.ts"
     ],
     "exclude": [
         "node_modules"
