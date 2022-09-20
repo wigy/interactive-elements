@@ -1,1 +1,222 @@
-var m=Object.defineProperty;var E=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var T=Object.prototype.hasOwnProperty;var A=(e,o)=>{for(var p in o)m(e,p,{get:o[p],enumerable:!0})},I=(e,o,p,a)=>{if(o&&typeof o=="object"||typeof o=="function")for(let s of d(o))!T.call(e,s)&&s!==p&&m(e,s,{get:()=>o[s],enumerable:!(a=E(o,s))||a.enumerable});return e};var S=e=>I(m({},"__esModule",{value:!0}),e);var W={};A(W,{NO_SEGMENT:()=>H,elementNames:()=>x,isActiveElement:()=>i,isBooleanElement:()=>k,isBoxElement:()=>F,isButtonElement:()=>P,isCaseElement:()=>C,isContainerElement:()=>l,isFlatElement:()=>b,isHtmlElement:()=>L,isID:()=>Y,isImportAction:()=>B,isImportAnswerAction:()=>g,isImportConfigureAction:()=>y,isImportOpAction:()=>u,isImportState:()=>O,isMessageElement:()=>h,isNamedElement:()=>c,isNumberElement:()=>R,isPatchAction:()=>w,isPostAction:()=>v,isRadioElement:()=>V,isRealID:()=>f,isTextElement:()=>D,isTextFileLineElement:()=>M,isYesNoElement:()=>N,num:()=>G});module.exports=S(W);function w(e){return typeof e=="object"&&e!==null&&"url"in e&&e.type==="patch"}function v(e){return typeof e=="object"&&e!==null&&"url"in e&&e.type==="post"}function i(e){return typeof e=="object"&&e!==null&&!!e.actions}function c(e){return typeof e=="object"&&e!==null&&"name"in e}function k(e){return i(e)&&e.type==="boolean"}function N(e){return i(e)&&e.type==="yesno"}function R(e){return i(e)&&e.type==="number"}function D(e){return i(e)&&e.type==="text"}function P(e){return i(e)&&e.type==="button"}function l(e){return typeof e=="object"&&e!==null&&!!e.elements}function C(e){return typeof e=="object"&&e!==null&&e.condition&&e.cases&&typeof e.cases=="object"&&e.cases!==null}function b(e){return l(e)&&e.type==="flat"}function F(e){return l(e)&&e.type==="box"}function L(e){return typeof e=="object"&&e!==null&&e.type==="html"&&"html"in e&&typeof e.html=="string"}function h(e){return typeof e=="object"&&e!==null&&e.type==="message"&&"severity"in e&&["info","warning","error","success"].includes(e.severity)&&"text"in e&&typeof e.text=="string"}function M(e){return typeof e=="object"&&e!==null&&e.type==="textFileLine"&&"line"in e&&typeof e.line=="object"&&e.line!==null}function V(e){return i(e)&&e.type==="radio"&&"options"in e&&typeof e.options=="object"}function u(e){return typeof e=="object"&&e!==null&&"op"in e?["segmentation","classification","analysis","execution"].includes(e.op):!1}function y(e){return typeof e=="object"&&e!==null&&"configure"in e?typeof e.configure=="object"&&e.configure!==null:!1}function g(e){return typeof e=="object"&&e!==null&&"answer"in e?typeof e.answer=="object"&&e.answer!==null:!1}function B(e){return u(e)||y(e)||g(e)}function O(e){return!(typeof e!="object"||e===null||!("stage"in e)||!("files"in e)||typeof e.stage!="string"||!["initial","segmented","classified","analyzed","executed"].includes(e.stage))}var H=Symbol("NO_SEGMENT");var f=e=>typeof e=="number",Y=e=>f(e)||e===null;function x(e){if(l(e)){let o=new Set;for(let p of e.elements)for(let a of x(p))o.add(a);return o}else if(c(e))return new Set([e.name]);return new Set}function G(e){e=e.replace(/\s/g,"");try{return/,\d+\./.test(e)?e=e.replace(/,/g,""):/\.\d+,/.test(e)?e=e.replace(/\./g,"").replace(/,/,"."):e=e.replace(",","."),parseFloat(e)}catch{return NaN}}0&&(module.exports={NO_SEGMENT,elementNames,isActiveElement,isBooleanElement,isBoxElement,isButtonElement,isCaseElement,isContainerElement,isFlatElement,isHtmlElement,isID,isImportAction,isImportAnswerAction,isImportConfigureAction,isImportOpAction,isImportState,isMessageElement,isNamedElement,isNumberElement,isPatchAction,isPostAction,isRadioElement,isRealID,isTextElement,isTextFileLineElement,isYesNoElement,num});
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
+  NO_SEGMENT: () => NO_SEGMENT,
+  elementNames: () => elementNames,
+  isActiveElement: () => isActiveElement,
+  isBooleanElement: () => isBooleanElement,
+  isBoxElement: () => isBoxElement,
+  isButtonElement: () => isButtonElement,
+  isCaseElement: () => isCaseElement,
+  isContainerElement: () => isContainerElement,
+  isFlatElement: () => isFlatElement,
+  isHtmlElement: () => isHtmlElement,
+  isID: () => isID,
+  isImportAction: () => isImportAction,
+  isImportAnswerAction: () => isImportAnswerAction,
+  isImportConfigureAction: () => isImportConfigureAction,
+  isImportOpAction: () => isImportOpAction,
+  isImportState: () => isImportState,
+  isMessageElement: () => isMessageElement,
+  isNamedElement: () => isNamedElement,
+  isNumberElement: () => isNumberElement,
+  isPatchAction: () => isPatchAction,
+  isPostAction: () => isPostAction,
+  isRadioElement: () => isRadioElement,
+  isRealID: () => isRealID,
+  isTextElement: () => isTextElement,
+  isTextFileLineElement: () => isTextFileLineElement,
+  isYesNoElement: () => isYesNoElement,
+  num: () => num
+});
+module.exports = __toCommonJS(src_exports);
+
+// src/risp/actions.ts
+function isPatchAction(obj) {
+  return typeof obj === "object" && obj !== null && "url" in obj && obj["type"] === "patch";
+}
+function isPostAction(obj) {
+  return typeof obj === "object" && obj !== null && "url" in obj && obj["type"] === "post";
+}
+
+// src/risp/elements.ts
+function isActiveElement(object) {
+  return typeof object === "object" && object !== null && !!object["actions"];
+}
+function isNamedElement(object) {
+  return typeof object === "object" && object !== null && "name" in object;
+}
+function isBooleanElement(object) {
+  return isActiveElement(object) && object["type"] === "boolean";
+}
+function isYesNoElement(object) {
+  return isActiveElement(object) && object["type"] === "yesno";
+}
+function isNumberElement(object) {
+  return isActiveElement(object) && object["type"] === "number";
+}
+function isTextElement(object) {
+  return isActiveElement(object) && object["type"] === "text";
+}
+function isButtonElement(object) {
+  return isActiveElement(object) && object["type"] === "button";
+}
+function isContainerElement(object) {
+  return typeof object === "object" && object !== null && !!object["elements"];
+}
+function isCaseElement(object) {
+  return typeof object === "object" && object !== null && object["condition"] && object["cases"] && typeof object["cases"] === "object" && object["cases"] !== null;
+}
+function isFlatElement(object) {
+  return isContainerElement(object) && object["type"] === "flat";
+}
+function isBoxElement(object) {
+  return isContainerElement(object) && object["type"] === "box";
+}
+function isHtmlElement(object) {
+  return typeof object === "object" && object !== null && object["type"] === "html" && "html" in object && typeof object["html"] === "string";
+}
+function isMessageElement(object) {
+  return typeof object === "object" && object !== null && object["type"] === "message" && "severity" in object && ["info", "warning", "error", "success"].includes(object["severity"]) && "text" in object && typeof object["text"] === "string";
+}
+function isTextFileLineElement(object) {
+  return typeof object === "object" && object !== null && object["type"] === "textFileLine" && "line" in object && typeof object["line"] === "object" && object["line"] !== null;
+}
+function isRadioElement(object) {
+  return isActiveElement(object) && object["type"] === "radio" && "options" in object && typeof object["options"] === "object";
+}
+
+// src/import/ImportAction.ts
+function isImportOpAction(obj) {
+  if (typeof obj === "object" && obj !== null) {
+    if ("op" in obj) {
+      return ["segmentation", "classification", "analysis", "execution"].includes(obj.op);
+    }
+  }
+  return false;
+}
+function isImportConfigureAction(obj) {
+  if (typeof obj === "object" && obj !== null) {
+    if ("configure" in obj) {
+      return typeof obj["configure"] === "object" && obj["configure"] !== null;
+    }
+  }
+  return false;
+}
+function isImportAnswerAction(obj) {
+  if (typeof obj === "object" && obj !== null) {
+    if ("answer" in obj) {
+      return typeof obj["answer"] === "object" && obj["answer"] !== null;
+    }
+  }
+  return false;
+}
+function isImportAction(obj) {
+  return isImportOpAction(obj) || isImportConfigureAction(obj) || isImportAnswerAction(obj);
+}
+
+// src/import/ImportState.ts
+function isImportState(obj) {
+  if (typeof obj !== "object") {
+    return false;
+  }
+  if (obj === null) {
+    return false;
+  }
+  if (!("stage" in obj) || !("files" in obj)) {
+    return false;
+  }
+  if (typeof obj["stage"] !== "string") {
+    return false;
+  }
+  if (!["initial", "segmented", "classified", "analyzed", "executed"].includes(obj["stage"])) {
+    return false;
+  }
+  return true;
+}
+
+// src/import/TextFileLine.ts
+var NO_SEGMENT = Symbol("NO_SEGMENT");
+
+// src/process_types.ts
+var isRealID = (id) => typeof id === "number";
+var isID = (id) => isRealID(id) || id === null;
+
+// src/utils.ts
+function elementNames(element) {
+  if (isContainerElement(element)) {
+    const vars = /* @__PURE__ */ new Set();
+    for (const sub of element.elements) {
+      for (const name of elementNames(sub)) {
+        vars.add(name);
+      }
+    }
+    return vars;
+  } else if (isNamedElement(element)) {
+    return /* @__PURE__ */ new Set([element.name]);
+  }
+  return /* @__PURE__ */ new Set();
+}
+function num(str) {
+  str = str.replace(/\s/g, "");
+  try {
+    if (/,\d+\./.test(str)) {
+      str = str.replace(/,/g, "");
+    } else if (/\.\d+,/.test(str)) {
+      str = str.replace(/\./g, "").replace(/,/, ".");
+    } else {
+      str = str.replace(",", ".");
+    }
+    return parseFloat(str);
+  } catch (err) {
+    return NaN;
+  }
+}
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  NO_SEGMENT,
+  elementNames,
+  isActiveElement,
+  isBooleanElement,
+  isBoxElement,
+  isButtonElement,
+  isCaseElement,
+  isContainerElement,
+  isFlatElement,
+  isHtmlElement,
+  isID,
+  isImportAction,
+  isImportAnswerAction,
+  isImportConfigureAction,
+  isImportOpAction,
+  isImportState,
+  isMessageElement,
+  isNamedElement,
+  isNumberElement,
+  isPatchAction,
+  isPostAction,
+  isRadioElement,
+  isRealID,
+  isTextElement,
+  isTextFileLineElement,
+  isYesNoElement,
+  num
+});

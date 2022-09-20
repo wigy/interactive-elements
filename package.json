@@ -6,8 +6,8 @@
   "author": "Tommi Ronkainen <tommi.ronkainen@gmail.com>",
   "license": "GPL-3.0-only",
   "scripts": {
-    "dev": "./make.js --dev --minify",
-    "build": "rm -rf dist/* && ./make.js --minify && tsc --emitDeclarationOnly",
+    "dev": "./make.js --dev",
+    "build": "rm -rf dist/* && ./make.js && tsc --emitDeclarationOnly",
     "doc": "rm -fr doc/* && typedoc --out doc src/index.ts",
     "doc:watch": "typedoc --watch --out doc src/index.ts",
     "lint": "eslint src/*.ts",
